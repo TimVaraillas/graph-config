@@ -1,0 +1,22 @@
+﻿[
+  { "country": "Chine", "population":	1355045511 },
+  { "country": "Inde", "population":	1210193422 },
+  { "country": "Etats-Unis", "population":	315664478 },
+  { "country": "Indonésie", "population":	237641326 },
+  { "country": "Brésil", "population":	193946886 },
+  { "country": "Pakistan", "population":	182614855 },
+  { "country": "Nigeria", "population":	174507539 },
+  { "country": "Bangladesh", "population":	152518015 },
+  { "country": "Russie", "population":	143056383 },
+  { "country": "Japon", "population":	127650000 },
+  { "country": "Mexique", "population":	117409830 },
+  { "country": "Philippines", "population":	97849000 },
+  { "country": "Viêt Nam", "population":	88780000 },
+  { "country": "Éthiopie", "population":	84320987 },
+  { "country": "Égypte", "population":	83681000 },
+  { "country": "Allemagne", "population":	80333700 },
+  { "country": "Turquie", "population":	75627384 },
+  { "country": "Congo", "population":	75507308 },
+  { "country": "Iran", "population":	75149669 },
+  { "country": "Thaïlande", "population":	67448120 }
+]
