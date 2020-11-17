@@ -37,7 +37,7 @@
                           <v-col cols="12">
                             <h3 class="primary--text">Réglages généraux</h3>
                           </v-col>
-                          <v-col cols="9">
+                          <v-col cols="8">
                             <v-select
                               v-model="config.type"
                               :items="chartTypes"
@@ -45,7 +45,7 @@
                               outlined>
                             </v-select>
                           </v-col>
-                          <v-col cols="3">
+                          <v-col cols="4">
                             <v-switch
                               v-model="config.stacked"
                               label="Graphe empilé"
@@ -57,18 +57,37 @@
                           <v-col cols="12">
                             <h3 class="primary--text">Contrôles</h3>
                           </v-col>
-                          <v-col cols="3">
+                          <v-col cols="4">
                             <v-switch
                               v-model="config.control"
                               label="Panneau de contrôle">
                             </v-switch>
                           </v-col>
-                          <v-col cols="3">
+                          <v-col cols="4">
                             <v-switch
                               v-model="config.download"
                               label="Téléchargement"
                               :disabled="!config.control">
                             </v-switch>
+                          </v-col>
+                        </v-row>
+                        <v-row>
+                          <v-col cols="12">
+                            <h3 class="primary--text">Légende</h3>
+                          </v-col>
+                          <v-col cols="4">
+                            <v-switch
+                              v-model="config.legend.show"
+                              label="Afficher la légende">
+                            </v-switch>
+                          </v-col>
+                          <v-col cols="8">
+                            <v-select
+                              v-model="config.legend.position"
+                              :items="legendPositions"
+                              label="Position de la légende"
+                              outlined>
+                            </v-select>
                           </v-col>
                         </v-row>
                       </div>
@@ -95,17 +114,10 @@
                                 outlined>
                               </v-select>
                             </v-col>
-                            <v-col cols="2">
+                            <v-col cols="4">
                               <v-switch
                                 v-model="serie.label"
                                 label="Afficher les labels">
-                              </v-switch>
-                            </v-col>
-                            <v-col cols="2">
-                              <v-switch
-                                v-model="serie.legend"
-                                label="Afficher les légendes"
-                                disabled>
                               </v-switch>
                             </v-col>
                             <v-col cols="12">
@@ -289,6 +301,12 @@ export default {
       { text: 'Diagramme radial', value: 'radial' },
       { text: 'Jauge', value: 'gauge' }
     ],
+    legendPositions: [
+      { text: 'Haut', value: 'top' },
+      { text: 'Droite', value: 'right' },
+      { text: 'Bas', value: 'bottom' },
+      { text: 'Gauche', value: 'left' }, 
+    ],
     serieTypes: [
       { text: 'Courbe', value: 'line' }, 
       { text: 'Aire', value: 'area' }, 
@@ -321,6 +339,10 @@ export default {
       stacked: false,
       control: true, // true, false
       download: true, // true false  - fait patie du control donc => control: { show: true, download: true } ?
+      legend: {
+        show: true,
+        position: 'top', // top, right, bottom, left
+      },
       series: [
         {
           name: "Première série",
@@ -328,7 +350,6 @@ export default {
           type: "line", // line, area, column
           curve: "smooth",  // smooth, straight, stepline
           color: "#2ecc71",
-          legend: true, // true, false
           label: true // true, false
         },
         {
@@ -337,7 +358,6 @@ export default {
           type: "column",// line, area, column, bar,
           curve: "smooth",  // smooth, straight, stepline
           color: "#e74c3c",
-          legend: true, // true, false
           label: false // true, false
         }
       ],

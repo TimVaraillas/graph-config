@@ -122,8 +122,8 @@ export default {
           // ...
         },
         legend: {
-          show: true,
-          position: 'top',
+          show: this.config.legend.show,
+          position: this.config.legend.position,
         }, 
         stroke: {
           show: true,
