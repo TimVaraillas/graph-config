@@ -126,11 +126,18 @@
                           <v-col cols="12">
                             <h3 class="primary--text">Axe des abscisses</h3>
                             <v-row class="mt-3">
-                              <v-col cols="12">
+                              <v-col cols="3">
+                                <v-switch
+                                  v-model="config.xaxis.title.show"
+                                  label="Afficher le label">
+                                </v-switch>
+                              </v-col>
+                              <v-col cols="9">
                                 <v-text-field
-                                  v-model="config.xaxis.name"
+                                  v-model="config.xaxis.title.text"
                                   label="Label de l'axe"
                                   outlined
+                                  :disabled="!config.xaxis.title.show"
                                 ></v-text-field>
                               </v-col>
                               <v-col cols="4">
@@ -172,32 +179,39 @@
                               <v-col cols="12">
                                 <h4 class="warning--text">Axe {{ config.series[i].name }}</h4>
                               </v-col>
-                              <v-col cols="6">
+                              <v-col cols="4">
                                 <v-switch
                                   v-model="axis.show"
                                   label="Afficher l'axe">
                                 </v-switch>
                               </v-col>
-                              <v-col cols="6">
+                              <v-col cols="4">
                                 <v-switch
                                   v-model="axis.color"
                                   label="Utiliser la couleur de la série">
                                 </v-switch>
                               </v-col>
-                              <v-col cols="6">
-                                <v-text-field
-                                  v-model="axis.name"
-                                  label="Label de l'axe"
-                                  outlined
-                                ></v-text-field>
-                              </v-col>
-                              <v-col cols="6">
+                              <v-col cols="4">
                                 <v-select
                                   v-model="axis.position"
                                   :items="yaxisPositions"
                                   label="Position de l'axe"
                                   outlined>
                                 </v-select>
+                              </v-col>
+                              <v-col cols="3">
+                                <v-switch
+                                  v-model="axis.title.show"
+                                  label="Afficher le label">
+                                </v-switch>
+                              </v-col>
+                              <v-col cols="9">
+                                <v-text-field
+                                  v-model="axis.title.text"
+                                  label="Label de l'axe"
+                                  outlined
+                                  :disabled="!axis.title.show"
+                                ></v-text-field>
                               </v-col>
                               <v-col cols="3">
                                 <v-text-field
@@ -320,7 +334,10 @@ export default {
         }
       ],
       xaxis: {
-        name: "Nom de l'axe des abcsisses",
+        title: {
+          show: true,
+          text: "Nom de l'axe des abcsisses"
+        },
         type: "datetime", // datetime, text
         format: "ll", // DD/MM/YYYY, MMMM, HH:mm:ss, ...
         interval: 10,
@@ -339,7 +356,10 @@ export default {
       yaxis: [
         {
           show: true,
-          name: "Nom de l'axe des ordonnées n°1",
+          title: {
+            show: true,
+            text: "Nom de l'axe des ordonnées n°1"
+          },
           position: "left", //left, right
           min: 0,
           max: 180,
@@ -349,7 +369,10 @@ export default {
         },
         {
           show: true,
-          name: "Nom de l'axe des ordonnées n°2",
+          title: {
+            show: true,
+            text: "Nom de l'axe des ordonnées n°2"
+          },
           position: "right", //left, right
           min: 0,
           max: 200,

@@ -134,7 +134,7 @@ export default {
         },
         xaxis: {
           title: {
-            text: this.config.xaxis.name,
+            text: this.config.xaxis.title.show ? this.config.xaxis.title.text : undefined,
             offsetY: 13
           },
           type: this.config.xaxis.type == 'datetime' ? 'datetime' : 'category',
@@ -153,7 +153,7 @@ export default {
         yaxis: this.config.yaxis.map((axis, i) => ({
           show: axis.show,
           title: {
-            text: axis.name,
+            text: axis.title.show ? axis.title.text : undefined,
             style: {
               color: axis.color ? this.vSeries[i].color : undefined,
             }
