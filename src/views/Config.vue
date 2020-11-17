@@ -301,8 +301,8 @@ export default {
       download: true, // true false  - fait patie du control donc => control: { show: true, download: true } ?
       series: [
         {
-          name: "Série 1",
-          data: [90, 41, 35, 51, 49, 62, 69, 91, 148],
+          name: "Première série",
+          data: [95, 41, 35, 51, 49, 62, 69, 91, 148],
           type: "line", // line, area, column
           curve: "smooth",  // smooth, straight, stepline
           color: "#2ecc71",
@@ -310,8 +310,8 @@ export default {
           label: true // true, false
         },
         {
-          name: "Série 2",
-          data: [30, 26, 12, 27, 86, 48, 21, 64, 99],
+          name: "Deuxième série",
+          data: [31, 26, 12, 27, 86, 48, 21, 64, 99],
           type: "column",// line, area, column, bar,
           curve: "smooth",  // smooth, straight, stepline
           color: "#e74c3c",

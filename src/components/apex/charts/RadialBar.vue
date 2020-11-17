@@ -4,7 +4,7 @@
     
     <div class="chart">
       <section>
-        <apexchart type="radialBar" height="450" :options="options" :series="vSeries"></apexchart>
+        <apexchart type="radialBar" height="450" :options="vOptions" :series="vSeries"></apexchart>
       </section>
     </div>
   </v-container>
@@ -35,7 +35,17 @@ export default {
   },
   computed: {
     vSeries() {
-      return this.series[0].data;
+      return this.series.map(s => s.data[0]); // Récupère la première donnée de chaque série
+    },
+    vOptions() {
+      return {
+        ...this.options,
+        labels: this.series.map(s => s.name),
+        colors: this.series.map(s => s.color),
+        stroke: {
+          show: false
+        }
+      };
     }
   }
 }

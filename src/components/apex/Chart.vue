@@ -122,7 +122,8 @@ export default {
           // ...
         },
         legend: {
-          show: false
+          show: true,
+          position: 'top',
         }, 
         stroke: {
           show: true,
@@ -157,8 +158,8 @@ export default {
               color: axis.color ? this.vSeries[i].color : undefined,
             }
           },
-          // min: parseInt(axis.min, 10),
-          // max: parseInt(axis.max, 10),
+          min: parseInt(axis.min, 10),
+          max: parseInt(axis.max, 10),
           logarithmic: axis.logarithmic,
           opposite: axis.position == 'right' ? true : false,
           axisTicks: {
