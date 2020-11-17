@@ -126,13 +126,13 @@
                           <v-col cols="12">
                             <h3 class="primary--text">Axe des abscisses</h3>
                             <v-row class="mt-3">
-                              <v-col cols="3">
+                              <v-col cols="4">
                                 <v-switch
                                   v-model="config.xaxis.title.show"
                                   label="Afficher le label">
                                 </v-switch>
                               </v-col>
-                              <v-col cols="9">
+                              <v-col cols="8">
                                 <v-text-field
                                   v-model="config.xaxis.title.text"
                                   label="Label de l'axe"
@@ -199,13 +199,13 @@
                                   outlined>
                                 </v-select>
                               </v-col>
-                              <v-col cols="3">
+                              <v-col cols="4">
                                 <v-switch
                                   v-model="axis.title.show"
                                   label="Afficher le label">
                                 </v-switch>
                               </v-col>
-                              <v-col cols="9">
+                              <v-col cols="8">
                                 <v-text-field
                                   v-model="axis.title.text"
                                   label="Label de l'axe"
@@ -213,23 +213,31 @@
                                   :disabled="!axis.title.show"
                                 ></v-text-field>
                               </v-col>
-                              <v-col cols="3">
+                              <v-col cols="4">
+                                <v-switch
+                                  v-model="axis.set_min_max"
+                                  label="Définir le minimum et le maximum manuellement">
+                                </v-switch>
+                              </v-col>
+                              <v-col cols="4">
                                 <v-text-field
                                   type="number"
                                   v-model="axis.min"
                                   label="Valeur minimum"
                                   outlined
+                                  :disabled="!axis.set_min_max"
                                 ></v-text-field>
                               </v-col>
-                              <v-col cols="3">
+                              <v-col cols="4">
                                 <v-text-field
                                   type="number"
                                   v-model="axis.max"
                                   label="Valeur maximum"
                                   outlined
+                                  :disabled="!axis.set_min_max"
                                 ></v-text-field>
                               </v-col>
-                              <v-col cols="3">
+                              <v-col cols="6">
                                 <v-text-field
                                   type="number"
                                   v-model="axis.step"
@@ -237,7 +245,7 @@
                                   outlined
                                 ></v-text-field>
                               </v-col>
-                              <v-col cols="3">
+                              <v-col cols="6">
                                 <v-switch
                                   v-model="axis.logarithmic"
                                   label="Échelle logarithmique"
@@ -361,6 +369,7 @@ export default {
             text: "Nom de l'axe des ordonnées n°1"
           },
           position: "left", //left, right
+          set_min_max: true, 
           min: 0,
           max: 180,
           step: 10, // à remplacer par interval (nombre d'intervalle) ? 
@@ -374,8 +383,9 @@ export default {
             text: "Nom de l'axe des ordonnées n°2"
           },
           position: "right", //left, right
+          set_min_max: true, 
           min: 0,
-          max: 200,
+          max: 180,
           step: 10,
           logarithmic: false,
           color: true // true, false

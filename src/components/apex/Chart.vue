@@ -158,8 +158,8 @@ export default {
               color: axis.color ? this.vSeries[i].color : undefined,
             }
           },
-          min: parseInt(axis.min, 10),
-          max: parseInt(axis.max, 10),
+          min: axis.set_min_max && parseInt(axis.min, 10) ? parseInt(axis.min, 10) : undefined,
+          max: axis.set_min_max && parseInt(axis.max, 10) ? parseInt(axis.max, 10) : undefined,
           logarithmic: axis.logarithmic,
           opposite: axis.position == 'right' ? true : false,
           axisTicks: {
