@@ -42,14 +42,18 @@ export default {
       }))
     },
     vOptions() {
-      let vOptions = { ...this.options }
-      vOptions.plotOptions = { bar: { horizontal: true } },
-      vOptions.yaxis = this.options.yaxis[0];
-      vOptions.xaxis = {
-        type: 'category',
-        categories: this.options.xaxis.categories,
+      return { 
+        ...this.options,
+        plotOptions: { bar: { horizontal: true } },
+        yaxis: this.options.yaxis[0],
+        xaxis: {
+          type: 'category',
+          categories: this.options.xaxis.categories,
+        },
+        stroke: {
+          show: false
+        }
       };
-      return vOptions;
     }
   }
 }

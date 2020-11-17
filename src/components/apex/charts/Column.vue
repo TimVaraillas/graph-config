@@ -4,7 +4,7 @@
     
     <div class="chart">
       <section>
-        <apexchart type="bar" height="450" :options="options" :series="vSeries"></apexchart>
+        <apexchart type="bar" height="450" :options="vOptions" :series="vSeries"></apexchart>
       </section>
     </div>
   </v-container>
@@ -40,6 +40,14 @@ export default {
         data: s.data,
         color: s.color
       }))
+    },
+    vOptions() {
+      return {
+        ...this.options,
+        stroke: {
+          show: false
+        }
+      };
     }
   }
 }
